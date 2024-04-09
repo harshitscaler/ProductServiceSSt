@@ -1,6 +1,7 @@
 package dev.harshit.productservicesst.services;
 
 import dev.harshit.productservicesst.dtos.FakeStoreProductDto;
+import dev.harshit.productservicesst.exceptions.ProductNotFoundException;
 import dev.harshit.productservicesst.models.Category;
 import dev.harshit.productservicesst.models.Product;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
+@Service("FakeStoreProductService")
 public class FakeStoreProductService implements ProductService{
     @Override
     public Product getProductById(Long id) {
@@ -20,7 +21,7 @@ public class FakeStoreProductService implements ProductService{
         FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject("https://fakestoreapi.com/products/" + id, FakeStoreProductDto.class);
         // convert Fakestroe dto object to product object
         if(fakeStoreProductDto==null){
-            return null;
+            throw new ProductNotFoundException(id, "Please pass a valid productId");
         }
         return convertFakeStoreProductDtoToProduct(fakeStoreProductDto);
     }
@@ -35,6 +36,18 @@ public class FakeStoreProductService implements ProductService{
         }
         return products;
     }
+
+    @Override
+    public Product createProduct(Product product) {
+
+        return null;
+    }
+
+//    @Override
+//    public Product createProduct(Product product) {
+//        return null;
+//    }
+
     private Product convertFakeStoreProductDtoToProduct(FakeStoreProductDto fakeStoreProductDto){
         Product product = new Product();
         product.setId(fakeStoreProductDto.getId());
