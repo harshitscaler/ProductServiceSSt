@@ -20,7 +20,7 @@ public class Product {
     @ManyToOne
     private Category category;
     private String image;
-
+    private int qty;
 //    Product(Long id,String title,String description,Double price,Category category,String image){
 //        this.id = id;
             // the default constructor can be made using @AllArgsConstructor
