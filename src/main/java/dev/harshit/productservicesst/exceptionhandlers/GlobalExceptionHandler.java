@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
-
     @ExceptionHandler(ArithmeticException.class)
     public ResponseEntity<ExceptionDto> handleArithmeticException(){
         ExceptionDto dto = new ExceptionDto();
@@ -27,7 +25,7 @@ public class GlobalExceptionHandler {
         ResponseEntity<ExceptionDto> response = new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
         return response;
     }
-    //    @ExceptionHandler(Exception.class)
+//        @ExceptionHandler(Exception.class)
 //    public ResponseEntity<ExceptionDto> handleGeneralException() {
 //        ExceptionDto dto = new ExceptionDto();
 //        dto.setMessage("Something went wrong");
@@ -35,6 +33,7 @@ public class GlobalExceptionHandler {
 //        ResponseEntity<ExceptionDto> response = new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
 //        return response;
 //    }
+    // this will give more data which is not a good  practice
 
     @ExceptionHandler(ProductNotFoundException.class)
     public ResponseEntity<ExceptionDto> handleProductNotFoundException(ProductNotFoundException productNotFoundException) {

@@ -17,6 +17,7 @@ public class FakeStoreProductService implements ProductService{
     public Product getProductById(Long id) {
         // Call the FakeStoreAPI to get the product with give id
         // Resttemplate is used for calling from 3 rd party api
+
         RestTemplate restTemplate = new RestTemplate();
         FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject("https://fakestoreapi.com/products/" + id, FakeStoreProductDto.class);
         // convert Fakestroe dto object to product object
