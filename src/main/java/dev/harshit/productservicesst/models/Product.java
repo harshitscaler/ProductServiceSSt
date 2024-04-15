@@ -17,10 +17,12 @@ public class Product {
     private String title;
     private String description;
     private double price;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn
     @ManyToOne
     private Category category;
     private String image;
-    private int qty;
+
 
 //    Product(Long id,String title,String description,Double price,Category category,String image){
 //        this.id = id;

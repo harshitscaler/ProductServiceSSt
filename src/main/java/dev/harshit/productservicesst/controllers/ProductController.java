@@ -60,8 +60,6 @@ public class ProductController {
 //        }
         // this is not a good practice
         return productService.getProductById(id);
-
-
     }
     @GetMapping("/")
     public List<Product> getAllProducts(){

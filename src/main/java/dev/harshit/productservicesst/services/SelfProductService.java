@@ -13,12 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Primary
+//@Primary
 public class SelfProductService implements ProductService{
 
     /// if we use new , then it will take lot of space , and it will call mutiple times.,  an dif we have to change from sql to no sql then it will disadvantage and code is not maintable
 
     private ProductRepository productRepository ;
+    // you have to change it again you have to change from 100 places , thats why
     private CategoryRepository categoryRepository;
 
     SelfProductService(ProductRepository productRepository,CategoryRepository categoryRepository) {
@@ -33,10 +34,10 @@ public class SelfProductService implements ProductService{
         }
         // return directly without storing in  a variable
         return optionalProduct.get();
-
     }
     @Override
     public List<Product> getAllProducts() {
+
         return null;
     }
 
@@ -53,8 +54,6 @@ public class SelfProductService implements ProductService{
         if(optionalCategory.isEmpty()){
             throw new CategoryNotFoundException("Invalide category id passed");
         }
-
-
         product1.setCategory(optionalCategory.get());
         return product1;
 
