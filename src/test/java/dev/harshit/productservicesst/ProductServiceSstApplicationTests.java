@@ -16,6 +16,7 @@ class ProductServiceSstApplicationTests {
     private CategoryRepository categoryRepository;
     @Test
     void contextLoads() {
+
     }
 //    @Test
 //    void testEagerVsLazyFetch(){
@@ -26,6 +27,16 @@ class ProductServiceSstApplicationTests {
 ////       System.out.println(products.get(0).getTitle());
 //        System.out.println("DEBUG");
 //    }
+        // this a normal function
+        // if you make @test this will a test case and executr independently
+
+    @Test
+        void sampleTestCases(){
+
+        }
+
+
+
 
 
 

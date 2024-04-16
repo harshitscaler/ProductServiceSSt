@@ -59,6 +59,10 @@ public class ProductController {
 //            return response;
 //        }
         // this is not a good practice
+//        Product product = productService.getProductById(1L);
+//        product.setImage("SAMPLE IMAGE");
+//        Product product1 = new Product();
+//        product1.setTitle("Macbook");
         return productService.getProductById(id);
     }
     @GetMapping("/")
